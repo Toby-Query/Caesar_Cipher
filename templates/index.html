@@ -4,13 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Caesar Cipher</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
   </head>
   <body>
     <h1>Caesar Cipher</h1>
-    <textarea id="textInput" placeholder="Enter text"></textarea>
-    <input type="number" id="shiftInput" placeholder="Shift value" />
-    <button onclick="sendRequest()">Encrypt</button>
-    <p id="result"></p>
+    <div class="container">
+      <textarea id="textInput" placeholder="Enter text"></textarea>
+      <div class="controls">
+        <button id="minusButton">-</button>
+        <input
+          type="number"
+          id="shiftInput"
+          placeholder="Shift value"
+          value="0"
+        />
+        <button id="plusButton">+</button>
+      </div>
+      <button id="encryptButton" onclick="sendRequest()">Encrypt</button>
+      <p id="result"></p>
+    </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>

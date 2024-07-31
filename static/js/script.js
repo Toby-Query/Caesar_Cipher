@@ -1,3 +1,15 @@
+document.getElementById('plusButton').addEventListener('click', () => {
+    const shiftInput = document.getElementById('shiftInput');
+    shiftInput.value = parseInt(shiftInput.value) + 1;
+    sendRequest();
+});
+
+document.getElementById('minusButton').addEventListener('click', () => {
+    const shiftInput = document.getElementById('shiftInput');
+    shiftInput.value = parseInt(shiftInput.value) - 1;
+    sendRequest();
+});
+
 function sendRequest() {
     const text = document.getElementById('textInput').value;
     const shift = document.getElementById('shiftInput').value;
@@ -10,7 +22,7 @@ function sendRequest() {
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById('result').innerText = `Encrypted Text: ${data.result}`;
+        document.getElementById('result').innerText = `${data.result}`;
     })
     .catch(error => console.error('Error:', error));
 }
